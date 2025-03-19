@@ -1,52 +1,55 @@
-// Sample books in the library
-let books = [
-    { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, isAvailable: true },
-    { id: 2, title: "1984", author: "George Orwell", year: 1949, isAvailable: true },
-    { id: 3, title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, isAvailable: true }
-];
+document.addEventListener("DOMContentLoaded", () => {
+    const library = document.getElementById("library");
 
-// Function to render books on the page
-function displayBooks() {
-    const libraryDiv = document.getElementById("library");
-    libraryDiv.innerHTML = ""; // Clear existing content
+    // Sample books
+    const books = [
+        {
+            title: "JavaScript Basics",
+            description: "An introduction to JavaScript programming.",
+            isBorrowed: false
+        },
+        {
+            title: "CSS Mastery",
+            description: "Learn advanced CSS techniques.",
+            isBorrowed: false
+        },
+        {
+            title: "New Book: Web Development",
+            description: "A comprehensive guide to modern web development.",
+            isBorrowed: false
+        }
+    ];
 
-    books.forEach(book => {
-        let bookDiv = document.createElement("div");
-        bookDiv.classList.add("book");
+    function displayBooks() {
+        library.innerHTML = ""; // Clear previous books before re-rendering
+        books.forEach((book, index) => {
+            const bookElement = document.createElement("div");
+            bookElement.classList.add("book");
 
-        bookDiv.innerHTML = `
-            <h2>${book.title}</h2>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Year:</strong> ${book.year}</p>
-            <p><strong>Status:</strong> ${book.isAvailable ? "Available" : "Borrowed"}</p>
-            <button class="borrow" ${!book.isAvailable ? "disabled" : ""} onclick="borrowBook(${book.id})">Borrow</button>
-            <button class="return" ${book.isAvailable ? "disabled" : ""} onclick="returnBook(${book.id})">Return</button>
-        `;
+            bookElement.innerHTML = `
+                <h2>${book.title}</h2>
+                <p>${book.description}</p>
+                <button class="borrow" onclick="borrowBook(${index})" ${book.isBorrowed ? "disabled" : ""}>
+                    ${book.isBorrowed ? "Borrowed" : "Borrow"}
+                </button>
+                <button class="return" onclick="returnBook(${index})" ${!book.isBorrowed ? "disabled" : ""}>
+                    ${!book.isBorrowed ? "Return Disabled" : "Return"}
+                </button>
+            `;
 
-        libraryDiv.appendChild(bookDiv);
-    });
-}
-
-// Function to borrow a book
-function borrowBook(bookId) {
-    let book = books.find(b => b.id === bookId);
-    if (book && book.isAvailable) {
-        book.isAvailable = false;
-        alert(`You have borrowed "${book.title}".`);
-        displayBooks();
+            library.appendChild(bookElement);
+        });
     }
-}
 
-// Function to return a book
-function returnBook(bookId) {
-    let book = books.find(b => b.id === bookId);
-    if (book && !book.isAvailable) {
-        book.isAvailable = true;
-        alert(`You have returned "${book.title}".`);
+    window.borrowBook = function(index) {
+        books[index].isBorrowed = true;
         displayBooks();
-    }
-}
+    };
 
-// Initial display of books
-displayBooks();
+    window.returnBook = function(index) {
+        books[index].isBorrowed = false;
+        displayBooks();
+    };
 
+    displayBooks();
+});
