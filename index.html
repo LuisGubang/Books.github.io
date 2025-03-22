@@ -2,17 +2,22 @@
 <html>
 <head>
     <title>Library Management</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <h1>Library Management</h1>
     <div class="book-list">
         <h2>Available Books</h2>
-        <ul>
+        <ul id="bookList">
             <li>1984 by George Orwell</li>
             <li>To Kill a Mockingbird by Harper Lee</li>
             <li>The Great Gatsby by F. Scott Fitzgerald</li>
             <li>Things Fall Apart by Chinua Achebe</li>
         </ul>
+        <input type="text" id="newBook" placeholder="Enter book title and author">
+        <button onclick="addBook()">Add Book</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
