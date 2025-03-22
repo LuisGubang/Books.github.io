@@ -6,22 +6,25 @@
 </head>
 <body>
     <h1>Library Management</h1>
+
+    <div id="message" class="message"></div> <!-- Message display area -->
+
     <div class="book-list">
         <h2>Available Books</h2>
         <ul id="book-list">
-            <li>1984 by George Orwell <span class="status">(Available)</span> 
+            <li data-title="1984">1984 by George Orwell <span class="status">(Available)</span> 
                 <button onclick="borrowBook('1984')">Borrow</button>
                 <button onclick="returnBook('1984')">Return</button>
             </li>
-            <li>To Kill a Mockingbird by Harper Lee <span class="status">(Available)</span> 
+            <li data-title="To Kill a Mockingbird">To Kill a Mockingbird by Harper Lee <span class="status">(Available)</span> 
                 <button onclick="borrowBook('To Kill a Mockingbird')">Borrow</button>
                 <button onclick="returnBook('To Kill a Mockingbird')">Return</button>
             </li>
-            <li>The Great Gatsby by F. Scott Fitzgerald <span class="status">(Available)</span> 
+            <li data-title="The Great Gatsby">The Great Gatsby by F. Scott Fitzgerald <span class="status">(Available)</span> 
                 <button onclick="borrowBook('The Great Gatsby')">Borrow</button>
                 <button onclick="returnBook('The Great Gatsby')">Return</button>
             </li>
-            <li>Things Fall Apart by Chinua Achebe <span class="status">(Available)</span> 
+            <li data-title="Things Fall Apart">Things Fall Apart by Chinua Achebe <span class="status">(Available)</span> 
                 <button onclick="borrowBook('Things Fall Apart')">Borrow</button>
                 <button onclick="returnBook('Things Fall Apart')">Return</button>
             </li>
