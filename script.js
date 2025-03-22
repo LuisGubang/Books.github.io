@@ -9,8 +9,8 @@ function updateMessage(message, color) {
     let messageDiv = document.getElementById("message");
     messageDiv.innerText = message;
     messageDiv.style.color = color;
-    messageDiv.style.display = "block"; // Show the message
-    setTimeout(() => messageDiv.style.display = "none", 3000); // Hide after 3 seconds
+    messageDiv.style.display = "block"; 
+    setTimeout(() => messageDiv.style.display = "none", 3000); 
 }
 
 function borrowBook(title) {
@@ -20,7 +20,7 @@ function borrowBook(title) {
     if (books[title] === "Available") {
         books[title] = "Borrowed";
         statusSpan.innerText = "(Borrowed)";
-        statusSpan.style.color = "red"; // Indicate unavailability
+        statusSpan.style.color = "red"; 
         updateMessage(`You have borrowed "${title}".`, "red");
     } else {
         updateMessage(`"${title}" is already borrowed.`, "red");
@@ -34,7 +34,7 @@ function returnBook(title) {
     if (books[title] === "Borrowed") {
         books[title] = "Available";
         statusSpan.innerText = "(Available)";
-        statusSpan.style.color = "green"; // Indicate availability
+        statusSpan.style.color = "green"; 
         updateMessage(`"${title}" has been returned.`, "green");
     } else {
         updateMessage(`"${title}" was not borrowed.`, "red");
