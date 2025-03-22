@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Library Management</h1>
-    <div class="book-list">
+    <div class="book-container">
         <h2>Available Books</h2>
         <ul id="bookList">
             <li>1984 by George Orwell</li>
@@ -14,10 +14,22 @@
             <li>The Great Gatsby by F. Scott Fitzgerald</li>
             <li>Things Fall Apart by Chinua Achebe</li>
         </ul>
-        <input type="text" id="newBook" placeholder="Enter book title and author">
-        <button onclick="addBook()">Add Book</button>
     </div>
+    
+    <div class="borrow-container">
+        <h2>Borrow a Book</h2>
+        <input type="text" id="bookInput" placeholder="Enter book title">
+        <button onclick="borrowBook()">Borrow</button>
+        <p id="statusMessage"></p>
+    </div>
+
+    <div class="return-container">
+        <h2>Return a Book</h2>
+        <input type="text" id="returnInput" placeholder="Enter book title">
+        <button onclick="returnBook()">Return</button>
+        <p id="returnMessage"></p>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
-
