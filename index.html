@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Library Management</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .book-list {
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Library Management System</h1>
-    </header>
-
-    <main>
-        <section id="library">
-            <!-- Books will be loaded here dynamically -->
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+    <h1>Library Management</h1>
+    <div class="book-list">
+        <h2>Available Books</h2>
+        <ul>
+            <li>1984 by George Orwell</li>
+            <li>To Kill a Mockingbird by Harper Lee</li>
+            <li>The Great Gatsby by F. Scott Fitzgerald</li>
+            <li>Things Fall Apart by Chinua Achebe</li>
+        </ul>
+    </div>
 </body>
 </html>
